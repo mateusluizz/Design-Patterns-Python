@@ -28,7 +28,7 @@ This repository is dedicated to studying and implementing various design pattern
   - State
   - Visitor
   - Interpreter
-  - Template Method
+  - Template Method ✅
 
 ## Getting Started
 
@@ -52,6 +52,5 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 ## Acknowledgements
 
 - [Refactoring.Guru](https://refactoring.guru/design-patterns)
-- [Dive Into Design Patterns](https://refactoring.guru/design-patterns-book)
 
 Happy coding!
