@@ -1,5 +1,8 @@
 from strategy.context.calculator import Calculator
+from strategy.context.shipping import Shipping
+from strategy.strategies.common_shipping import CommonShipping
 from strategy.strategies.div import Div
+from strategy.strategies.express_shipping import ExpressShipping
 from strategy.strategies.multi import Multi
 from strategy.strategies.sub import Sub
 from strategy.strategies.sum import Sum
@@ -39,7 +42,29 @@ def strategy():
     calc.strategy = multi_strategy
     print(calc.calculate(number_1, number_2))
 
-    print(sum_result, sub_result, div_result, multi_result)
+    print(
+        f"Sum: {sum_result}",
+        f"Sub: {sub_result}",
+        f"Div: {div_result}",
+        f"Multi: {multi_result}",
+    )
+
+    print()
+    print("=" * 40)
+    print("Shipping strategies")
+    print("=" * 40)
+    print("")
+
+    # Shipping
+
+    common_shipping = CommonShipping()
+    express_shipping = ExpressShipping()
+
+    shipping = Shipping(common_shipping)
+
+    print(f"Common Shipping: {shipping.calculate(100)}")
+    shipping.strategy = express_shipping
+    print(f"Express Shipping: {shipping.calculate(100)}")
 
 
 def template_method():
@@ -54,10 +79,10 @@ def template_method():
 
     gateway = Gateway()
     value = 1000
-    
-    print("="*40)
+
+    print("=" * 40)
     print("New payment process")
-    print("="*40)
+    print("=" * 40)
     print("")
 
     debit_payment = DebitPayment(value, gateway)
@@ -71,5 +96,5 @@ def template_method():
 
 
 if __name__ == "__main__":
-    # strategy()
+    strategy()
     template_method()

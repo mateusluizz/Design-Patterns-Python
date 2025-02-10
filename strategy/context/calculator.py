@@ -13,5 +13,5 @@ class Calculator:
     def strategy(self, strategy: CalculatorStrategy):
         self._strategy = strategy
 
-    def calculate(self, a, b) -> float:
-        return self._strategy.calculate(a, b)
+    def calculate(self, num1: float, num2: float) -> float:
+        return self._strategy.calculate(num1, num2)
