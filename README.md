@@ -6,7 +6,7 @@ This repository is dedicated to studying and implementing various design pattern
 
 - Creational Patterns
   - Singleton
-  - Factory Method
+  - Factory Method ✅
   - Abstract Factory
   - Builder
   - Prototype

@@ -1,3 +1,5 @@
+from factory.panamerican.panamerican_bank import PanamericanBank
+from factory.ubs.ubs_bank import UbsBank
 from strategy.context.calculator import Calculator
 from strategy.context.shipping import Shipping
 from strategy.strategies.common_shipping import CommonShipping
@@ -95,6 +97,23 @@ def template_method():
     cash_payment.process_charge()
 
 
+def factory():
+    print("Panamerican")
+
+    panam_bank = PanamericanBank()
+    panam_bank.generate_bank_slip(10, 100)
+    panam_bank.generate_bank_slip(30, 100)
+    panam_bank.generate_bank_slip(60, 100)
+
+    print("UBS")
+
+    ubs_bank = UbsBank()
+    ubs_bank.generate_bank_slip(10, 100)
+    ubs_bank.generate_bank_slip(30, 100)
+    ubs_bank.generate_bank_slip(60, 100)
+
+
 if __name__ == "__main__":
-    strategy()
-    template_method()
+    # strategy()
+    # template_method()
+    factory()
