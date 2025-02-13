@@ -1,5 +1,10 @@
 from factory.panamerican.panamerican_bank import PanamericanBank
 from factory.ubs.ubs_bank import UbsBank
+from observer import newletter
+from observer.client import Client
+from observer.employee import Employee
+from observer.newletter import Newsletter
+from observer.supplier import Supplier
 from strategy.context.calculator import Calculator
 from strategy.context.shipping import Shipping
 from strategy.strategies.common_shipping import CommonShipping
@@ -113,7 +118,40 @@ def factory():
     ubs_bank.generate_bank_slip(60, 100)
 
 
+def observer():
+    newsletter = Newsletter()
+
+    employee_1 = Employee("Employee1", "employee1@email.com", newsletter)
+    employee_2 = Employee("Employee2", "employee2@email.com", newsletter)
+
+    client_1 = Client("Client1", "client1@email.com", newsletter)
+    client_2 = Client("Client2", "client2@email.com", newsletter)
+
+    supplier_1 = Supplier("Supplier1", "supplier1@email.com", newsletter)
+    supplier_2 = Supplier("Supplier2", "supplier2@email.com", newsletter)
+
+    newsletter.add_message("First Message")
+
+    print()
+    print("#" * 20)
+
+    newsletter.remove_observer(client_2)
+    newsletter.remove_observer(employee_1)
+    newsletter.remove_observer(supplier_2)
+
+    newsletter.add_message("Second Message")
+
+    print()
+    print("#" * 20)
+
+    newsletter.remove_observer(employee_2)
+    newsletter.remove_observer(supplier_1)
+
+    newsletter.add_message("Third Message")
+
+
 if __name__ == "__main__":
     # strategy()
     # template_method()
-    factory()
+    # factory()
+    observer()
